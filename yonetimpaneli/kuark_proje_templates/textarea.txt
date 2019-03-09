@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label class="control-label col-md-2">{label_name} <span class="required">
+  * </span>
+  </label>
+  <div class="col-md-10">
+      <textarea name="{form_name}" class="wysihtml5 form-control {zorunluluk}" rows="20"></textarea>
+  </div>
+</div>

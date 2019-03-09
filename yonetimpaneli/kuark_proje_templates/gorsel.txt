@@ -1,0 +1,41 @@
+<div class="form-group">
+
+    <label class="col-md-2 control-label">{label_name}: </label>
+    <div class="col-md-10 {form_name}_detay">
+        <input id="{form_name}_ImageData" class="gorselsecicidata" data-name="{form_name}" data-w="{width}" data-h="{height}" name="{form_name}" type="hidden" value="">
+        <div class="fixed-dragger-cropperq" style="height: 400px"><img src="{value}"></div>
+        <div class="docs-toolbar">
+            <div class="btn-group">
+                <button class="btn btn-primary" data-method="zoom" data-option="0.1" type="button" title="Zoom In">
+      <span class="docs-tooltip" data-toggle="tooltip" title="Yakınlaş">
+        <span class="glyphicon glyphicon-zoom-in"></span>
+      </span>
+                </button>
+                <button class="btn btn-primary" data-method="zoom" data-option="-0.1" type="button" title="Zoom Out">
+      <span class="docs-tooltip" data-toggle="tooltip" title="Uzaklaş">
+        <span class="glyphicon glyphicon-zoom-out"></span>
+      </span>
+                </button>
+                <button class="btn btn-primary" data-method="rotate" data-option="-90" type="button" title="Rotate Left">
+      <span class="docs-tooltip" data-toggle="tooltip" title="Sola Çevir">
+        <span class="glyphicon glyphicon-share-alt docs-flip-horizontal"></span>
+      </span>
+                </button>
+                <button class="btn btn-primary" data-method="rotate" data-option="90" type="button" title="Rotate Right">
+      <span class="docs-tooltip" data-toggle="tooltip" title="Sağa Çevir">
+        <span class="glyphicon glyphicon-share-alt"></span>
+      </span>
+                </button>
+
+                </button>
+                <label class="btn btn-primary" for="{form_name}_inputImage" title="Görsel Yükle">
+                    <input class="hide" id="{form_name}_inputImage" name="file" type="file" accept="image/*">
+      <span class="docs-tooltip" data-toggle="tooltip" title="Görsel Yükle">
+        <span class="glyphicon glyphicon-upload"></span>
+      </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>

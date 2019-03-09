@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label class="control-label col-md-2">{label_name}</label>
+    <div class="col-md-10">
+      <div class="spinner">
+        <div class="input-group" style="width:150px;">
+          <input type="text" class="spinner-input form-control" name="{form_name}" value="" maxlength="3" readonly>
+          <div class="spinner-buttons input-group-btn">
+            <button type="button" class="btn spinner-up default">
+            <i class="fa fa-angle-up"></i>
+            </button>
+            <button type="button" class="btn spinner-down default">
+            <i class="fa fa-angle-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

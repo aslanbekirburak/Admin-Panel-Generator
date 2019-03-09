@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label class="col-md-2 control-label">{label_name}: <span class="required"> </span></label>
+    <div class="col-md-10">
+        <div class="input-icon right">
+          <i class="fa"></i>
+          <input type="text" class="form-control {zorunluluk} form_meridian_datetime" name="{form_name}" placeholder="{placeholder}" value=""/>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<!--label{label_name}-->
+      <div class="form-group">
+                      <label class="col-md-2 control-label">{label_name}: <span class="required"> </span></label>
+                      <div class="col-md-10">
+                          <select class="form-control kategoriler {zorunluluk}" name="{form_name}">
+                          <option value="" >Bir Seçim Yapınız.</option>
+                          <?php foreach ($db->get_results("SELECT * from {table_name} ORDER BY {table_variable} ASC ") as $value) {?>
+                            <option value="<?=$value->id?>" {selected}><?=$value->{table_variable}?></option>
+                          <?php }?>
+                          </select>
+                      </div>
+                  </div>
+<!--label{label_name}-->

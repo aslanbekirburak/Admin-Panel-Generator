@@ -1,0 +1,345 @@
+CREATE TABLE `file_controllers` (
+`id` int(11) NOT NULL,
+`file_id` int(11) NOT NULL,
+`Php_adress` varchar(250) NOT NULL,
+`form_type` varchar(250) NOT NULL,
+`label_name` varchar(200) NOT NULL,
+`form_name` varchar(200) NOT NULL,
+`form_selector_id` varchar(255) NOT NULL,
+`Placeholder` varchar(250) NOT NULL,
+`zorunluluk` varchar(100) NOT NULL,
+`label1` varchar(200) NOT NULL,
+`label2` varchar(200) NOT NULL,
+`value1` varchar(200) NOT NULL,
+`value2` varchar(200) NOT NULL,
+`width` int(100) NOT NULL,
+`height` int(100) NOT NULL,
+`Database_name` varchar(250) NOT NULL,
+`Database_var_name` varchar(250) NOT NULL,
+`sira` int(11) NOT NULL,
+`status` tinyint(4) NOT NULL,
+`created_at` datetime NOT NULL,
+`updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `kullanici` (
+`id` int(11) NOT NULL,
+`adsoyad` varchar(500) NOT NULL,
+`yetki` varchar(500) NOT NULL,
+`email` varchar(150) NOT NULL,
+`durum` int(11) NOT NULL,
+`sifre` varchar(250) NOT NULL,
+`lastlogin_date` datetime NOT NULL,
+`lastlogin_ip` varchar(100) NOT NULL,
+`created_at` datetime NOT NULL,
+`updated_at` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `logs` (
+`id` int(11) NOT NULL,
+`ipaddress` varchar(50) NOT NULL,
+`user_id` int(11) NOT NULL,
+`module` varchar(500) NOT NULL,
+`task` varchar(500) NOT NULL,
+`note` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+`logdate` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `yetkiler` (
+`id` int(11) NOT NULL,
+`adi` varchar(100) CHARACTER SET utf8 NOT NULL,
+`yetki` int(11) NOT NULL,
+`erisilensayfalar` text CHARACTER SET utf8 NOT NULL,
+`created_at` datetime NOT NULL,
+`updated_at` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+
+INSERT INTO `yetkiler` (`id`, `adi`, `yetki`, `erisilensayfalar`, `created_at`, `updated_at`) VALUES
+(1, 'Web Master', 16, '["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","453","455","457","458","462","463","465","466","467","468","469","470","471"]', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+CREATE TABLE `yetki_sayfalar` (
+`id` int(11) NOT NULL,
+`menuadi` varchar(200) CHARACTER SET utf8 NOT NULL,
+`ust_id` int(11) NOT NULL,
+`icon` varchar(150) COLLATE utf8_turkish_ci NOT NULL,
+`sira` int(11) NOT NULL,
+`sayfalar` varchar(200) CHARACTER SET utf8 NOT NULL,
+`databaseadi` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+`type` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+`liste_oge` text COLLATE utf8_turkish_ci NOT NULL,
+`goster` int(11) NOT NULL,
+`created_at` datetime NOT NULL,
+`updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+INSERT INTO `yetki_sayfalar` (`id`, `menuadi`, `ust_id`, `icon`, `sira`, `sayfalar`, `databaseadi`, `type`, `liste_oge`, `goster`, `created_at`, `updated_at`) VALUES
+(1, 'Anasayfa', 0, 'icon-home', 6, 'anasayfa.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(2, 'Dosya Yöneticisi', 0, 'icon-folder', 8, 'dosya_yoneticisi.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(3, 'Yetki Gruplar', 9, 'icon-list', 12, 'yetki_gruplari.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(4, 'Yetki Grup Ekle', 9, 'icon-plus', 13, 'yetki_grup_ekle.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(5, 'Yetki Grup Düzenle', 9, '', 14, 'yetki_grup_duzenle.php', '', '', '', 0, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(6, 'Yönetici Listesi', 9, 'icon-users', 15, 'yoneticiler.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(7, 'Yönetici Ekle', 9, 'icon-user-follow', 11, 'yonetici_ekle.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(8, 'Yönetici Düzenle', 9, '', 16, 'yonetici_duzenle.php', '', '', '', 0, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(9, 'Yöneticiler', 0, 'icon-lock', 9, 'javascript:;', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(10, 'Menü Yönetimi', 0, 'icon-list', 10, 'javascript:;', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(11, 'Menü Düzenle', 10, '', 20, 'menu_duzenle.php', '', '', '', 0, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(12, 'Menü Ekle', 10, 'icon-plus', 21, 'menu_ekle.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(13, 'Menü Listesi', 10, 'icon-list', 22, 'menuler.php', '', '', '', 1, '0000-00-00 00:00:00', '2018-01-22 10:48:52'),
+(14, 'Form Öðeleri', 10, ' icon-cursor-move', 17, 'sayfa_ogeleri.php', '', '', '', 2, '2018-01-15 12:32:25', '2018-01-22 10:48:52'),
+(15, 'Öðe Ekle', 10, ' icon-cursor-move', 18, 'oge_ekle.php', '', '', '', 2, '2018-01-15 12:32:43', '2018-01-22 10:48:52'),
+(16, 'Öðe Düzenle', 10, ' icon-cursor-move', 19, 'oge_duzenle.php', '', '', '', 2, '2018-01-15 12:33:07', '2018-01-22 10:48:52'),
+(17, 'Build', 14, ' icon-cursor-move', 23, 'build.php', '', '', '', 2, '2017-08-01 15:25:11', '2018-01-22 10:48:52'),
+(18, 'Liste Öðeleri', 14, 'icon-list', 24, 'liste_ogeleri.php', '', '', '', 0, '2017-09-25 11:36:14', '2018-01-22 10:48:52'),
+(19, 'Webservis', 0, 'icon-layers', 11, 'javascript:;', '', '', '', 1, '2018-01-23 11:35:12', '0000-00-00 00:00:00'),
+(20, 'Method Ekle', 19, 'icon-plus', 1, 'method_ekle.php', 'webservis', 'ekle', '', 1, '2018-01-23 11:53:14', '0000-00-00 00:00:00'),
+(21, 'Methodlar', 19, 'icon-list', 2, 'method_listele.php', 'webservis', 'listele', '', 1, '2018-01-23 11:53:50', '0000-00-00 00:00:00'),
+(22, 'Method Düzenle', 19, ' icon-cursor-move', 2, 'method_duzenle.php', 'webservis', 'duzenle', '', 2, '2018-01-23 11:54:14', '0000-00-00 00:00:00'),
+(23, 'Method Build', 19, ' icon-cursor-move', 1, 'webservis_build.php', 'webservis', '', '', 2, '2018-01-23 11:54:41', '0000-00-00 00:00:00'),
+(24, 'method iþlemleri', 19, '', 0, 'method_ogeleri.php', 'webservis', 'listele', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(25, 'method iþlem ekle', 19, ' icon-cursor-move', 0, 'method_oge_ekle.php', '', '', '', 0, '2018-01-23 10:02:56', '0000-00-00 00:00:00'),
+(26, 'method iþlem düzenle', 19, 'icon-plus', 0, 'method_oge_duzenle.php', '', '', '', 0, '2018-01-23 10:03:43', '0000-00-00 00:00:00');
+
+
+CREATE TABLE `yetki_sayfa_icon` (
+`id` int(11) NOT NULL,
+`icon` varchar(200) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+INSERT INTO `yetki_sayfa_icon` (`id`, `icon`) VALUES
+(1, 'icon-user'),
+(2, 'icon-user-female'),
+(3, 'icon-users'),
+(4, 'icon-user-unfollow'),
+(5, 'icon-user-following'),
+(6, 'icon-user-follow'),
+(7, 'icon-trophy'),
+(8, 'icon-speedometer'),
+(9, 'icon-social-youtube'),
+(10, 'icon-social-facebook'),
+(11, 'icon-social-tumblr'),
+(12, 'icon-social-twitter'),
+(13, 'icon-social-dropbox'),
+(14, 'icon-social-dribbble'),
+(15, 'icon-shield'),
+(16, 'icon-screen-desktop'),
+(17, 'icon-screen-smartphone'),
+(18, 'icon-screen-tablet'),
+(19, 'icon-plane'),
+(20, 'icon-notebook'),
+(21, 'icon-moustache'),
+(22, 'icon-magic-wand'),
+(23, 'icon-magnet'),
+(24, 'icon-mouse'),
+(25, 'icon-hourglass'),
+(26, 'icon-graduation'),
+(27, 'icon-ghost'),
+(28, 'icon-eyeglasses'),
+(29, 'icon-fire'),
+(30, 'icon-game-controller'),
+(31, 'icon-envelope-open'),
+(32, 'icon-envelope-letter'),
+(33, 'icon-energy'),
+(34, ' icon-cursor-move'),
+(35, 'icon-disc'),
+(36, 'icon-emoticon-smile'),
+(37, 'icon-crop'),
+(38, 'icon-credit-card'),
+(39, 'icon-chemistry'),
+(40, 'icon-anchor'),
+(41, 'icon-badge'),
+(42, 'icon-bell'),
+(43, 'icon-action-redo'),
+(44, 'icon-action-undo'),
+(45, 'icon-bag'),
+(46, 'icon-book-open'),
+(47, 'icon-basket-loaded'),
+(48, 'icon-basket'),
+(49, 'icon-briefcase'),
+(50, 'icon-bubbles'),
+(51, 'icon-calculator'),
+(52, 'icon-call-out'),
+(53, 'icon-call-in'),
+(54, 'icon-call-end'),
+(55, 'icon-compass'),
+(56, 'icon-cup'),
+(57, 'icon-diamond'),
+(58, 'icon-docs'),
+(59, 'icon-directions'),
+(60, 'icon-direction'),
+(61, 'icon-drawer'),
+(62, 'icon-drop'),
+(63, 'icon-earphones'),
+(64, 'icon-film'),
+(65, 'icon-feed'),
+(66, 'icon-earphones-alt'),
+(67, 'icon-folder-alt'),
+(68, 'icon-globe-alt'),
+(69, 'icon-handbag'),
+(70, 'icon-layers'),
+(71, 'icon-pin'),
+(72, 'icon-picture'),
+(73, 'icon-map'),
+(74, 'icon-playlist'),
+(75, 'icon-present'),
+(76, 'icon-printer'),
+(77, 'icon-vector'),
+(78, 'icon-speech'),
+(79, 'icon-puzzle'),
+(80, 'icon-wallet'),
+(81, 'icon-arrow-down'),
+(82, 'icon-arrow-left'),
+(83, 'icon-bar-chart'),
+(84, 'icon-arrow-up'),
+(85, 'icon-arrow-right'),
+(86, 'icon-bulb'),
+(87, 'icon-calendar'),
+(88, 'icon-control-end'),
+(89, 'icon-control-play'),
+(90, 'icon-control-pause'),
+(91, 'icon-control-forward'),
+(92, 'icon-control-rewind'),
+(93, 'icon-control-start'),
+(94, 'icon-cursor'),
+(95, 'icon-graph'),
+(96, 'icon-equalizer'),
+(97, ' icon-dislike'),
+(98, 'icon-grid'),
+(99, 'icon-home'),
+(100, 'icon-like'),
+(101, 'icon-logout'),
+(102, 'icon-login'),
+(103, 'icon-list'),
+(104, ' icon-loop'),
+(105, 'icon-microphone'),
+(106, 'icon-music-tone'),
+(107, 'icon-pencil'),
+(108, 'icon-note'),
+(109, 'icon-music-tone-alt'),
+(110, ' icon-pie-chart'),
+(111, 'icon-question'),
+(112, 'icon-rocket'),
+(113, 'icon-share'),
+(114, 'icon-share-alt'),
+(115, 'icon-shuffle'),
+(116, 'icon-size-actual'),
+(117, 'icon-size-fullscreen'),
+(118, 'icon-support'),
+(119, 'icon-tag'),
+(120, 'icon-trash'),
+(121, 'icon-umbrella'),
+(122, 'icon-wrench'),
+(123, 'icon-ban'),
+(124, 'icon-bubble'),
+(125, 'icon-camcorder'),
+(126, 'icon-camera'),
+(127, 'icon-check'),
+(128, 'icon-clock'),
+(129, 'icon-close'),
+(130, 'icon-cloud-download'),
+(131, 'icon-cloud-upload'),
+(132, 'icon-doc'),
+(133, 'icon-envelope'),
+(134, 'icon-eye'),
+(135, 'icon-flag'),
+(136, 'icon-folder'),
+(137, ' icon-heart'),
+(138, 'icon-info'),
+(139, 'icon-key'),
+(140, 'icon-link'),
+(141, 'icon-lock'),
+(142, 'icon-lock-open'),
+(143, 'icon-magnifier'),
+(144, 'icon-magnifier-add'),
+(145, 'icon-magnifier-remove'),
+(146, 'icon-paper-clip'),
+(147, 'icon-paper-plane'),
+(148, 'icon-plus'),
+(149, 'icon-pointer'),
+(150, ' icon-power'),
+(151, 'icon-refresh'),
+(152, 'icon-reload'),
+(153, 'icon-settings'),
+(154, 'icon-star'),
+(155, 'icon-symbol-female'),
+(156, 'icon-symbol-male'),
+(157, 'icon-target'),
+(158, 'icon-volume-1'),
+(159, 'icon-volume-2'),
+(160, 'icon-volume-off');
+
+CREATE TABLE `webservis` (
+  `id` int(11) NOT NULL,
+  `methodadi` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `databaseadi` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+CREATE TABLE `webservis_controller` (
+  `id` int(11) NOT NULL,
+  `webservis_id` int(100) NOT NULL,
+  `tablename` varchar(200) NOT NULL,
+  `colname` varchar(200) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `pagerowcount` varchar(100) NOT NULL,
+  `colshow` text NOT NULL,
+  `colordername` varchar(200) NOT NULL,
+  `colorder` varchar(200) NOT NULL,
+  `jointable` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `webservis`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `webservis_controller`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `file_controllers`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `kullanici`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `logs`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `yetkiler`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `yetki_sayfalar`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `yetki_sayfa_icon`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `webservis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `webservis_controller`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `file_controllers`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `kullanici`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `logs`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `yetkiler`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `yetki_sayfalar`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+ALTER TABLE `yetki_sayfa_icon`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;

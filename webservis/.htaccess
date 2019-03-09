@@ -1,0 +1,6 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/yonetimpaneli/.*$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule json/(.*)/(.*)$ index.php?method=$1&id=$2 [NC,L]
